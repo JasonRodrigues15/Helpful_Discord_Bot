@@ -6,7 +6,6 @@ from itertools import cycle
 
 client = commands.Bot(command_prefix=".")
 token = open("token.txt", "r").read()
-client.run(token)
 status = cycle(['.info for information', '.help for commands'])
 @client.event
 async def on_ready():
@@ -53,3 +52,4 @@ async def on_command_error(ctx, error):
 async def on_member_join(member):
     role = discord.utils.get(member.server.roles, name='Member')
     await client.add_roles(member, role)
+client.run(token)
