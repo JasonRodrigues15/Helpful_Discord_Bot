@@ -5,6 +5,7 @@ from discord.ext import commands, tasks
 from itertools import cycle
 
 client = commands.Bot(command_prefix=".")
+client.remove_command("help")
 token = open("token.txt", "r").read()
 status = cycle(['.info for information', '.help for commands'])
 @client.event
