@@ -68,4 +68,17 @@ async def info(ctx):
     embed.add_field(name=".help", value="Use the .help command for a full list of all commands", inline=False)
 
     await ctx.send(embed=embed)
+@client.command(pass_context=True)
+async def help(ctx):
+    author = ctx.message.author
+
+    help_embed = discord.Embed(
+        colour=discord.Colour.dark_blue()
+    )
+
+    help_embed.set_author(name='Help')
+    help_embed.add_field(name='.ping', value='Returns Pong!', inline=False)
+
+    await ctx.send("Check your direct messages, I have sent you a help message.")
+    await author.send(embed=help_embed)
 client.run(token)
