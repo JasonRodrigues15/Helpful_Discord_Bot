@@ -22,3 +22,6 @@ async def on_member_join(member):
 @client.event
 async def on_member_remove(member):
     print(f"{member} has left the server")
+@client.command()
+async def ping(ctx):
+    await ctx.send(f"Latency is {round(client.latency * 1000)}ms")
