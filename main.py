@@ -36,3 +36,9 @@ async def coin(ctx, *, question):
 async def clear_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("Please add a prediction between Heads and Tails")
+@client.command()
+@commands.has_role("Clearer")
+@commands.has_permissions(manage_messages=True)
+async def clear(ctx, amount=5):
+    await ctx.channel.purge(limit=amount)
+    await ctx.send(f"Deleted {amount} messages")
