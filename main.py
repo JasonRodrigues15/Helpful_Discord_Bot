@@ -79,6 +79,10 @@ async def help(ctx):
 
     help_embed.set_author(name='Help')
     help_embed.add_field(name='.ping', value='Returns Pong!', inline=False)
+    help_embed.add_field(name='.ping', value='Returns the latency', inline=False)
+    help_embed.add_field(name='.coin', value='Flips a coin', inline=False)
+    help_embed.add_field(name='.info', value='Displays the info card', inline=False)
+    help_embed.add_field(name='.clear', value='Clears specified number of messages', inline=False)
 
     await ctx.send("Check your direct messages, I have sent you a help message.")
     await author.send(embed=help_embed)
