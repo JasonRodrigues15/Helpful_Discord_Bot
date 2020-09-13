@@ -52,4 +52,20 @@ async def on_command_error(ctx, error):
 async def on_member_join(member):
     role = discord.utils.get(member.server.roles, name='Member')
     await client.add_roles(member, role)
+@client.command()
+async def info(ctx):
+    embed = discord.Embed(
+        title="Helpful Bot",
+        description="This is a bot used to help manage a server with common commands.",
+        colour=discord.Colour.dark_blue()
+
+    )
+
+    embed.set_footer(text="Bot by Jason Rodrigues")
+    embed.set_image(url="https://cdn.discordapp.com/attachments/750142801051648130/751157271815389254/black-and-white-handshake-clipart-3.png")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/750142801051648130/751157271815389254/black-and-white-handshake-clipart-3.png")
+    embed.set_author(name=".info", icon_url="https://cdn.discordapp.com/attachments/750142801051648130/751157271815389254/black-and-white-handshake-clipart-3.png")
+    embed.add_field(name=".help", value="Use the .help command for a full list of all commands", inline=False)
+
+    await ctx.send(embed=embed)
 client.run(token)
