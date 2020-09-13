@@ -45,3 +45,7 @@ async def clear(ctx, amount=5):
 async def clear_error(ctx, error):
     if isinstance(error, commands.MissingRole):
         await ctx.send("You are not allowed to use that command")
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send("Invalid command used.")
