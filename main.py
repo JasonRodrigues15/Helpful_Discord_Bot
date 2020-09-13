@@ -25,3 +25,10 @@ async def on_member_remove(member):
 @client.command()
 async def ping(ctx):
     await ctx.send(f"Latency is {round(client.latency * 1000)}ms")
+@client.command(aliases=["test"])
+async def coin(ctx, *, question):
+    responses = [
+        "The Coin Flipped to Heads",
+        "The Coin Flipped to Tails"]
+
+    await ctx.send(f"Prediction: {question}\nAnswer: {random.choice(responses)}")
