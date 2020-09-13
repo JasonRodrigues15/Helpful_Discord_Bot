@@ -32,3 +32,7 @@ async def coin(ctx, *, question):
         "The Coin Flipped to Tails"]
 
     await ctx.send(f"Prediction: {question}\nAnswer: {random.choice(responses)}")
+@coin.error
+async def clear_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("Please add a prediction between Heads and Tails")
