@@ -49,3 +49,7 @@ async def clear_error(ctx, error):
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("Invalid command used.")
+@client.event
+async def on_member_join(member):
+    role = discord.utils.get(member.server.roles, name='Member')
+    await client.add_roles(member, role)
